@@ -202,6 +202,12 @@
       "key": "code_pattern",
       "sub": "js",
       "id": "QkRqsfU"
+    },
+    {
+      "name": "OOPs",
+      "key": "oops",
+      "sub": "js",
+      "id": "S9Hc3Bu"
     }
   ],
   "algo": [
@@ -1052,6 +1058,38 @@
         "code_pattern"
       ],
       "id": 10
+    },
+    {
+      "subject": "js",
+      "title": "Javascript OOPs implementation",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.educative.io/blog/object-oriented-programming"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=S1dWe3f2zm0&ab_channel=Telusko"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=vDJpGenyHaA&ab_channel=TraversyMedia"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=PFmuCDHHpwk&ab_channel=ProgrammingwithMosh"
+        }
+      ],
+      "tags": [
+        {
+          "name": "OOPs"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 4,
+      "cate": [
+        "general",
+        "OOPs"
+      ],
+      "id": 11
     }
   ],
   "es6": [],
