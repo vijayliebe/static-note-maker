@@ -1149,6 +1149,9 @@
       "links": [
         {
           "name": "https://medium.com/@dis_is_patrick/practical-uses-for-closures-c65640ae7304#.fva9ii8od"
+        },
+        {
+          "name": "https://www.youtube.com/watch?v=-xqJo5VRP4A&ab_channel=techsith"
         }
       ],
       "tags": [
@@ -1416,6 +1419,29 @@
         "general"
       ],
       "id": 14
+    },
+    {
+      "subject": "js",
+      "title": "Factory Function vs. Constructor vs. Class",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://www.youtube.com/watch?v=fbuyliXlDGI&ab_channel=ColorCode"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Youtube"
+        }
+      ],
+      "ans": "",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "general",
+        "code_pattern"
+      ],
+      "id": 15
     }
   ],
   "es6": [
