@@ -893,7 +893,7 @@
           "name": "General"
         }
       ],
-      "ans": "function BST(value) {\n  this.value = value;\n  this.right = null;\n  this.left = null;\n}\n \nBST.prototype.insert = function(value) {\n  if (value <= this.value) {\n    if (!this.left) this.left = new BST(value);\n    else this.left.insert(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) this.right = new BST(value);\n    else this.right.insert(value);\n  }\n};\n \nBST.prototype.contains = function(value) {\n  if (this.value === value) return true;\n  if (value < this.value) {\n    if (!this.left) return false;\n    else return this.left.contains(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) return false;\n    else return this.right.contains(value);\n  }\n};\n \nBST.prototype.depthFirstTraversal = function(iteratorFunc, order) {\n  if (order === 'pre-order') iteratorFunc(this.value);\n  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'in-order') iteratorFunc(this.value);\n  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'post-order') iteratorFunc(this.value);\n};\n \nBST.prototype.breadthFirstTraversal = function(iteratorFunc) {\n  var queue = [this];\n  while (queue.length) {\n    var treeNode = queue.shift();\n    iteratorFunc(treeNode);\n    if (treeNode.left) queue.push(treeNode.left);\n    if (treeNode.right) queue.push(treeNode.right);\n  }\n};\n \nfunction log(value) {\n    console.log(value);\n};\n \nBST.prototype.getMinVal = function() {\n  if (this.left) return this.left.getMinVal();\n  else return this.value;\n};\n \nBST.prototype.getMaxVal = function() {\n  if (this.right) return this.right.getMaxVal();\n  else return this.value;\n};\n \n \n \nvar bst = new BST(50);\n \nbst.insert(30);\nbst.insert(70);\nbst.insert(100);\nbst.insert(60);\nbst.insert(59);\nbst.insert(20);\nbst.insert(45);\nbst.insert(35);\nbst.insert(85);\nbst.insert(105);\nbst.insert(10);\n \nfunction log(node) {\n console.log(node.value);\n}\n \nbst.breadthFirstTraversal(log);",
+      "ans": "\nfunction BST(value) {\n  this.value = value;\n  this.right = null;\n  this.left = null;\n}\n \nBST.prototype.insert = function(value) {\n  if (value <= this.value) {\n    if (!this.left) this.left = new BST(value);\n    else this.left.insert(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) this.right = new BST(value);\n    else this.right.insert(value);\n  }\n};\n \nBST.prototype.contains = function(value) {\n  if (this.value === value) return true;\n  if (value < this.value) {\n    if (!this.left) return false;\n    else return this.left.contains(value);\n  }\n  else if (value > this.value) {\n    if (!this.right) return false;\n    else return this.right.contains(value);\n  }\n};\n \nBST.prototype.depthFirstTraversal = function(iteratorFunc, order) {\n  if (order === 'pre-order') iteratorFunc(this.value);\n  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'in-order') iteratorFunc(this.value);\n  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);\n  if (order === 'post-order') iteratorFunc(this.value);\n};\n \nBST.prototype.breadthFirstTraversal = function(iteratorFunc) {\n  var queue = [this];\n  while (queue.length) {\n    var treeNode = queue.shift();\n    iteratorFunc(treeNode);\n    if (treeNode.left) queue.push(treeNode.left);\n    if (treeNode.right) queue.push(treeNode.right);\n  }\n};\n \nfunction log(value) {\n    console.log(value);\n};\n \nBST.prototype.getMinVal = function() {\n  if (this.left) return this.left.getMinVal();\n  else return this.value;\n};\n \nBST.prototype.getMaxVal = function() {\n  if (this.right) return this.right.getMaxVal();\n  else return this.value;\n};\n \n \n \nvar bst = new BST(50);\n \nbst.insert(30);\nbst.insert(70);\nbst.insert(100);\nbst.insert(60);\nbst.insert(59);\nbst.insert(20);\nbst.insert(45);\nbst.insert(35);\nbst.insert(85);\nbst.insert(105);\nbst.insert(10);\n \nfunction log(node) {\n console.log(node.value);\n}\n \nbst.breadthFirstTraversal(log);",
       "diff": 1,
       "imp": 1,
       "cate": [
@@ -1121,6 +1121,58 @@
         "queueStack"
       ],
       "id": 47
+    },
+    {
+      "subject": "algo",
+      "title": " Minimum Add to Make Parentheses Valid",
+      "ques": "A parentheses string is valid if and only if:\n\nIt is the empty string,\nIt can be written as AB (A concatenated with B), where A and B are valid strings, or\nIt can be written as (A), where A is a valid string.\nYou are given a parentheses string s. In one move, you can insert a parenthesis at any position of the string.\n\nFor example, if s = \"()))\", you can insert an opening parenthesis to be \"(()))\" or a closing parenthesis to be \"())))\".\nReturn the minimum number of moves required to make s valid.",
+      "links": [
+        {
+          "name": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Microsoft"
+        },
+        {
+          "name": "Leetcode"
+        }
+      ],
+      "ans": "/*\nExample 1:\n\nInput: s = \"())\"\nOutput: 1\nExample 2:\n\nInput: s = \"(((\"\nOutput: 3\n*/\n\nvar minAddToMakeValid = function(s) {\n   let open = 0, close = 0;\n   for(let i=0; i<s.length; i++){\n       if(s[i] == \"(\"){\n          open = open + 1;\n        } else {\n            if(open > 0){\n                open = open - 1;\n            } else {\n                close = close + 1;\n            } \n        }\n   }\n    \n   return open + close;\n};",
+      "diff": 3,
+      "imp": 3,
+      "cate": [
+        "str",
+        "greed",
+        "queueStack"
+      ],
+      "id": 48
+    },
+    {
+      "subject": "algo",
+      "title": "Single linked list - basics (ES6) :",
+      "ques": "",
+      "links": [
+        {
+          "name": "https://medium.com/swlh/singly-linked-list-in-javascript-a0e58d045561"
+        },
+        {
+          "name": "https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3"
+        }
+      ],
+      "tags": [
+        {
+          "name": "General"
+        }
+      ],
+      "ans": "\nclass LinkedList{\n\n  constructor(d){\n    this.data = d;\n    this.next = null\n  }\n\n  add(d){\n    let head = this;\n    while(head.next){\n      head = head.next;\n    }\n    head.next = new LinkedList(d);\n  }\n\n  remove(idx){\n    if(!idx){\n      let head = this.next;\n      this.data = head.data;\n      this.next = head.next;\n    } \n\n    if(idx){\n      let i=0;\n      let head = this;\n      while(i < (idx-1) && head.next){\n        head = head.next;\n        i = i + 1;\n      }\n\n      if(head && head.next){\n        if(idx > 0 ){\n          head.next = head.next.next; \n        } else{\n          head.next = head.next;\n        }\n      }\n            \n    }\n    \n  }\n\n  traverse(){\n    let idx = 0;\n    let head = this;\n    while(head.next){\n      console.log(idx +\" : \"+head.data);\n      head = head.next;\n      idx = idx + 1;\n    }\n    console.log(idx +\" : \"+head.data);\n  }\n}\n\nlet ll = new LinkedList(1);\nll.add(2);\nll.add(3);\nll.add(4);\nll.add(5);\nll.add(6);\n\n// ll.remove();\n// ll.remove();\nll.remove(2);\n\nll.traverse();\nconsole.log(ll);",
+      "diff": 1,
+      "imp": 1,
+      "cate": [
+        "linked-list"
+      ],
+      "id": 49
     }
   ],
   "js": [
